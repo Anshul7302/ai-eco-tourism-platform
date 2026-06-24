@@ -1,15 +1,18 @@
 from fastapi import FastAPI
-from app.routes import homestays, users, bookings
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(
-    title="EcoStay AI API",
-    version="1.0.0"
-)
+from app.routes import users
+from app.routes import homestays
+from app.routes import bookings
 
-app.include_router(
-    homestays.router,
-    prefix="/homestays",
-    tags=["Homestays"]
+app = FastAPI(title="EcoStay AI API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(
@@ -19,13 +22,17 @@ app.include_router(
 )
 
 app.include_router(
+    homestays.router,
+    prefix="/homestays",
+    tags=["Homestays"]
+)
+
+app.include_router(
     bookings.router,
     prefix="/bookings",
     tags=["Bookings"]
 )
 
 @app.get("/")
-def home():
-    return {
-        "message": "EcoStay AI Backend Running Successfully"
-    }
+def root():
+    return {"message": "EcoStay AI Backend Running"}
