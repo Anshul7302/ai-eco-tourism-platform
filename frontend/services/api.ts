@@ -1,6 +1,11 @@
 const API_URL = "http://127.0.0.1:8000";
 
 export async function getHomestays() {
-  const res = await fetch(`${API_URL}/homestays`);
+  const res = await fetch(`${API_URL}/homestays/`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch homestays");
+  }
+
   return res.json();
 }
