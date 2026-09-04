@@ -1,10 +1,38 @@
-export default function Testimonial() {
+export default function Testimonials() {
+  const reviews = [
+    {
+      name: "Rahul Sharma",
+      text: "Amazing eco-friendly stay. Highly recommended!",
+    },
+    {
+      name: "Priya Verma",
+      text: "AI planner created the perfect itinerary.",
+    },
+    {
+      name: "Aman Singh",
+      text: "Beautiful homestays with excellent hosts.",
+    },
+  ];
+
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white shadow-md p-6 hover:shadow-lg transition">
-      <h2 className="text-2xl font-bold text-green-700 mb-3">Testimonial</h2>
-      <p className="text-gray-600">
-        This is the starter Testimonial component for the EcoStay AI project.
-      </p>
-    </div>
+    <section className="py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          What Travelers Say
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg p-6"
+            >
+              <p className="text-gray-600 italic">"{review.text}"</p>
+              <h3 className="mt-6 font-bold">{review.name}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

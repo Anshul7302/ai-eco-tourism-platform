@@ -49,12 +49,11 @@ export default function FeaturedHomestays({ homestays }: Props) {
           </div>
 
           <Link
-            href="/homestays"
-            className="mt-6 md:mt-0 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition"
-          >
-            View All
-          </Link>
-
+  href="/homestays"
+  className="mt-6 md:mt-0 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold transition duration-300 inline-block"
+>
+  View All
+</Link>
         </div>
 
         {/* Cards */}
@@ -150,9 +149,12 @@ export default function FeaturedHomestays({ homestays }: Props) {
 
                   </div>
 
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition">
-                    Book Now
-                  </button>
+                 <Link
+  href={`/bookings/create?homestayId=${stay.id}`}
+  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition inline-block"
+>
+  Book Now
+</Link>
 
                 </div>
 

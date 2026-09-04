@@ -1,10 +1,30 @@
 export default function Newsletter() {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white shadow-md p-6 hover:shadow-lg transition">
-      <h2 className="text-2xl font-bold text-green-700 mb-3">Newsletter</h2>
-      <p className="text-gray-600">
-        This is the starter Newsletter component for the EcoStay AI project.
-      </p>
-    </div>
+    <section className="bg-green-700 py-16">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <h2 className="text-4xl font-bold text-white">
+          Subscribe to Our Newsletter
+        </h2>
+
+        <p className="mt-4 text-green-100">
+          Get eco-travel tips, exclusive offers, and destination updates directly in your inbox.
+        </p>
+
+        <form className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="w-full md:w-96 px-5 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
+          />
+
+          <button
+            type="submit"
+            className="px-8 py-3 bg-white text-green-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
